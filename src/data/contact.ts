@@ -3,20 +3,20 @@ import type { ContactItem } from "@/types/portfolio";
 export const contactItems: ContactItem[] = [
   {
     label: "Email",
-    value: "marysneha@example.com",
-    href: "mailto:marysneha@example.com",
+    value: "jeyakumarsneha21@gmail.com",
+    href: "mailto:jeyakumarsneha21@gmail.com",
     icon: "mail",
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/marysneha",
-    href: "https://linkedin.com/in/marysneha",
+    value: "linkedin.com/in/mary-sneha",
+    href: "www.linkedin.com/in/mary-sneha",
     icon: "linkedin",
   },
   {
     label: "GitHub",
-    value: "github.com/marysneha",
-    href: "https://github.com/marysneha",
+    value: "github.com/MARY101102",
+    href: "https://github.com/MARY101102",
     icon: "github",
   },
   {
