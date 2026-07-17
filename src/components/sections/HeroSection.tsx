@@ -25,8 +25,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="section-container relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-20"
-    >
+className="section-container relative flex min-h-screen items-center justify-center overflow-hidden px-4 pb-20 pt-32 md:pt-28"    >
       {/* Soft center glow */}
       <div className="soft-glow left-1/2 top-1/4 -translate-x-1/2" />
 

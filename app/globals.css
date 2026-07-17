@@ -85,3 +85,47 @@ body {
   filter: blur(40px);
   pointer-events: none;
 }
+
+/* Better anchor scrolling with fixed navbar */
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+/* Prevent accidental horizontal scroll */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Better text selection */
+::selection {
+  background: rgba(34, 211, 238, 0.25);
+  color: #f8fafc;
+}
+
+/* Better form font */
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+/* Subtle page divider helper */
+.section-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(34, 211, 238, 0.28),
+    rgba(139, 92, 246, 0.28),
+    transparent
+  );
+}
+
+/* Better mobile readability */
+@media (max-width: 640px) {
+  .section-container {
+    width: min(100% - 24px, 1120px);
+  }
+}
