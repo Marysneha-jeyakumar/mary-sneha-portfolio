@@ -5,6 +5,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import WhatIBuildSection from "@/components/sections/WhatIBuildSection";
+import { Reveal } from "@/components/ui";
 
 function Divider() {
   return <div className="section-container section-divider" />;
@@ -14,17 +15,40 @@ export default function Home() {
   return (
     <main className="hero-bg network-pattern min-h-screen overflow-hidden bg-[#0A0F1C] text-[#F8FAFC]">
       <Navbar />
-      <HeroSection />
+
+      <Reveal y={16} duration={0.8}>
+        <HeroSection />
+      </Reveal>
+
       <Divider />
-      <WhatIBuildSection />
+
+      <Reveal>
+        <WhatIBuildSection />
+      </Reveal>
+
       <Divider />
-      <AboutSection />
+
+      <Reveal>
+        <AboutSection />
+      </Reveal>
+
       <Divider />
-      <SkillsSection />
+
+      <Reveal>
+        <SkillsSection />
+      </Reveal>
+
       <Divider />
-      <ProjectsSection />
+
+      <Reveal>
+        <ProjectsSection />
+      </Reveal>
+
       <Divider />
-      <ContactSection />
+
+      <Reveal>
+        <ContactSection />
+      </Reveal>
     </main>
   );
 }
