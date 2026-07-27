@@ -8,6 +8,7 @@ type ButtonProps = {
   variant?: ButtonVariant;
   className?: string;
   type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 };
 
 const variantClasses: Record<ButtonVariant, string> = {
@@ -25,9 +26,10 @@ export default function Button({
   variant = "primary",
   className = "",
   type = "button",
+  disabled = false,
 }: ButtonProps) {
-  const baseClasses =
-    "inline-flex items-center justify-center gap-2 rounded-xl px-8 py-3 font-heading text-sm font-semibold transition duration-300";
+ const baseClasses =
+  "inline-flex items-center justify-center gap-2 rounded-xl px-8 py-3 font-heading text-sm font-semibold transition duration-300 disabled:cursor-not-allowed disabled:opacity-60";
 
   const classes = `${baseClasses} ${variantClasses[variant]} ${className}`;
 
@@ -40,8 +42,8 @@ export default function Button({
   }
 
   return (
-    <button type={type} className={classes}>
-      {children}
-    </button>
+<button type={type} disabled={disabled} className={classes}>
+  {children}
+</button>
   );
 }

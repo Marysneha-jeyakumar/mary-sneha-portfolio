@@ -1,7 +1,14 @@
+"use client";
+
+import { ValidationError, useForm } from "@formspree/react";
 import { Button, Card, IconBox, SectionHeader } from "@/components/ui";
 import { contactItems } from "@/data/contact";
 
+const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID || "";
+
 export default function ContactSection() {
+  const [state, handleSubmit] = useForm(formId);
+
   return (
     <section id="contact" className="section-container relative px-4 py-24">
       <div className="absolute left-0 top-24 h-72 w-72 rounded-full bg-[#8B5CF6]/10 blur-3xl" />
@@ -15,7 +22,6 @@ export default function ContactSection() {
         />
 
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-          {/* Contact Form */}
           <Card className="p-6 md:p-8">
             <div className="mb-8 flex items-center gap-4">
               <IconBox icon="send" className="h-12 w-12 rounded-2xl" />
@@ -30,93 +36,128 @@ export default function ContactSection() {
               </div>
             </div>
 
-            <form
-              action="https://formspree.io/f/your-form-id"
-              method="POST"
-              className="space-y-5"
-            >
-              <div className="grid gap-5 md:grid-cols-2">
+            {state.succeeded ? (
+              <div className="rounded-2xl border border-[#22D3EE]/60 bg-[#22D3EE]/10 p-6 text-center">
+                <IconBox
+                  icon="send"
+                  className="mx-auto h-14 w-14 rounded-full border-[#22D3EE]/70"
+                />
+
+                <h4 className="font-heading mt-5 text-2xl font-bold text-[#F8FAFC]">
+                  Message sent successfully!
+                </h4>
+
+                <p className="mt-3 text-sm leading-6 text-[#94A3B8]">
+                  Thank you for reaching out. I’ll reply as soon as possible.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid gap-5 md:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="mb-2 block text-sm font-medium text-[#CBD5E1]"
+                    >
+                      Your Name
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      placeholder="Mary Sneha"
+                      className="w-full rounded-xl border border-[#24304A] bg-[#0A0F1C]/80 px-4 py-3 text-[#F8FAFC] outline-none transition placeholder:text-[#64748B] focus:border-[#22D3EE]"
+                    />
+                    <ValidationError
+                      prefix="Name"
+                      field="name"
+                      errors={state.errors}
+                      className="mt-2 text-sm text-red-400"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="mb-2 block text-sm font-medium text-[#CBD5E1]"
+                    >
+                      Your Email
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="you@example.com"
+                      className="w-full rounded-xl border border-[#24304A] bg-[#0A0F1C]/80 px-4 py-3 text-[#F8FAFC] outline-none transition placeholder:text-[#64748B] focus:border-[#22D3EE]"
+                    />
+                    <ValidationError
+                      prefix="Email"
+                      field="email"
+                      errors={state.errors}
+                      className="mt-2 text-sm text-red-400"
+                    />
+                  </div>
+                </div>
+
                 <div>
                   <label
-                    htmlFor="name"
+                    htmlFor="subject"
                     className="mb-2 block text-sm font-medium text-[#CBD5E1]"
                   >
-                    Your Name
+                    Subject
                   </label>
                   <input
-                    id="name"
-                    name="name"
+                    id="subject"
+                    name="subject"
                     type="text"
                     required
-                    placeholder="Mary Sneha"
+                    placeholder="Internship opportunity / collaboration / project idea"
                     className="w-full rounded-xl border border-[#24304A] bg-[#0A0F1C]/80 px-4 py-3 text-[#F8FAFC] outline-none transition placeholder:text-[#64748B] focus:border-[#22D3EE]"
+                  />
+                  <ValidationError
+                    prefix="Subject"
+                    field="subject"
+                    errors={state.errors}
+                    className="mt-2 text-sm text-red-400"
                   />
                 </div>
 
                 <div>
                   <label
-                    htmlFor="email"
+                    htmlFor="message"
                     className="mb-2 block text-sm font-medium text-[#CBD5E1]"
                   >
-                    Your Email
+                    Message
                   </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
+                  <textarea
+                    id="message"
+                    name="message"
                     required
-                    placeholder="you@example.com"
-                    className="w-full rounded-xl border border-[#24304A] bg-[#0A0F1C]/80 px-4 py-3 text-[#F8FAFC] outline-none transition placeholder:text-[#64748B] focus:border-[#22D3EE]"
+                    rows={6}
+                    placeholder="Write your message here..."
+                    className="w-full resize-none rounded-xl border border-[#24304A] bg-[#0A0F1C]/80 px-4 py-3 text-[#F8FAFC] outline-none transition placeholder:text-[#64748B] focus:border-[#22D3EE]"
+                  />
+                  <ValidationError
+                    prefix="Message"
+                    field="message"
+                    errors={state.errors}
+                    className="mt-2 text-sm text-red-400"
                   />
                 </div>
-              </div>
 
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="mb-2 block text-sm font-medium text-[#CBD5E1]"
-                >
-                  Subject
-                </label>
-                <input
-                  id="subject"
-                  name="subject"
-                  type="text"
-                  required
-                  placeholder="Internship opportunity / collaboration / project idea"
-                  className="w-full rounded-xl border border-[#24304A] bg-[#0A0F1C]/80 px-4 py-3 text-[#F8FAFC] outline-none transition placeholder:text-[#64748B] focus:border-[#22D3EE]"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="mb-2 block text-sm font-medium text-[#CBD5E1]"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={6}
-                  placeholder="Write your message here..."
-                  className="w-full resize-none rounded-xl border border-[#24304A] bg-[#0A0F1C]/80 px-4 py-3 text-[#F8FAFC] outline-none transition placeholder:text-[#64748B] focus:border-[#22D3EE]"
-                />
-              </div>
-
-              <Button type="submit" className="w-full md:w-auto">
-                Send Message
-              </Button>
-            </form>
-
-            <p className="mt-5 text-xs leading-5 text-[#64748B]">
-              Note: Replace the Formspree URL with your real form endpoint
-              before deployment.
-            </p>
+<Button
+  type="submit"
+  disabled={state.submitting}
+  className="w-full md:w-auto"
+>
+  {state.submitting ? "Sending..." : "Send Message"}
+</Button>
+              </form>
+            )}
           </Card>
 
-          {/* Contact Info */}
           <div className="space-y-5">
             <Card className="p-6 md:p-8">
               <h3 className="font-heading text-2xl font-bold text-[#F8FAFC]">
@@ -158,7 +199,9 @@ export default function ContactSection() {
                         item.href.startsWith("mailto:") ? undefined : "_blank"
                       }
                       rel={
-                        item.href.startsWith("mailto:") ? undefined : "noreferrer"
+                        item.href.startsWith("mailto:")
+                          ? undefined
+                          : "noreferrer"
                       }
                       className="block"
                     >
@@ -189,11 +232,11 @@ export default function ContactSection() {
           </div>
         </div>
 
-        {/* Footer */}
         <footer className="mt-16 border-t border-[#24304A] pt-8">
           <div className="flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
             <p className="text-sm text-[#94A3B8]">
-              © 2026 Mary Sneha. Built with Next.js, TypeScript, and Tailwind CSS.
+              © 2026 Mary Sneha. Built with Next.js, TypeScript, and Tailwind
+              CSS.
             </p>
 
             <div className="flex items-center gap-5 text-sm text-[#94A3B8]">
