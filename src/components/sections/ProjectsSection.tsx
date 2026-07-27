@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Badge, Button, Card, IconBox, SectionHeader } from "@/components/ui";
 import { projects } from "@/data/projects";
 
@@ -14,46 +15,50 @@ function getProjectIcon(category: string) {
 function ProjectPreview({
   title,
   category,
+  image,
 }: {
   title: string;
   category: string;
+  image: string;
 }) {
   const icon = getProjectIcon(category);
 
   return (
     <div className="relative h-52 overflow-hidden rounded-2xl border border-[#24304A] bg-[#0A0F1C]">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#4F46E5]/20 via-transparent to-[#22D3EE]/10" />
-      <div className="absolute left-6 top-6 h-24 w-24 rounded-full bg-[#8B5CF6]/20 blur-3xl" />
-      <div className="absolute bottom-4 right-4 h-28 w-28 rounded-full bg-[#22D3EE]/20 blur-3xl" />
+      {image ? (
+        <Image
+          src={image}
+          alt={`${title} project preview`}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+        />
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-[#4F46E5]/20 via-transparent to-[#22D3EE]/10" />
+      )}
 
-      <div className="relative z-10 flex h-full flex-col justify-between p-5">
-        <div className="flex items-center justify-between">
-          <IconBox
-            icon={icon}
-            className="h-14 w-14 rounded-2xl border-[#22D3EE]/60 bg-[#111827]/80"
-          />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1C] via-[#0A0F1C]/40 to-transparent" />
 
-          <span className="rounded-full border border-[#24304A] bg-[#111827]/80 px-3 py-1 text-xs text-[#94A3B8]">
-            {category}
-          </span>
-        </div>
+      <div className="absolute left-5 top-5 z-10">
+        <IconBox
+          icon={icon}
+          className="h-12 w-12 rounded-2xl border-[#22D3EE]/60 bg-[#111827]/80 backdrop-blur-md"
+          iconClassName="text-xl"
+        />
+      </div>
 
-        <div>
-          <div className="mb-4 grid grid-cols-3 gap-2">
-            <div className="h-14 rounded-xl border border-[#24304A] bg-[#111827]/80" />
-            <div className="h-14 rounded-xl border border-[#24304A] bg-[#111827]/80" />
-            <div className="h-14 rounded-xl border border-[#24304A] bg-[#111827]/80" />
-          </div>
+      <div className="absolute right-5 top-5 z-10">
+        <span className="rounded-full border border-[#24304A] bg-[#111827]/80 px-3 py-1 text-xs text-[#CBD5E1] backdrop-blur-md">
+          {category}
+        </span>
+      </div>
 
-          <div className="space-y-2">
-            <div className="h-2 w-3/4 rounded-full bg-[#22D3EE]/50" />
-            <div className="h-2 w-1/2 rounded-full bg-[#8B5CF6]/50" />
-          </div>
+      <div className="absolute bottom-5 left-5 right-5 z-10">
+        <p className="font-heading line-clamp-1 text-lg font-bold text-[#F8FAFC]">
+          {title}
+        </p>
 
-          <p className="font-heading mt-4 line-clamp-1 text-sm font-semibold text-[#F8FAFC]">
-            {title}
-          </p>
-        </div>
+        <div className="mt-3 h-[2px] w-20 bg-gradient-to-r from-[#8B5CF6] to-[#22D3EE]" />
       </div>
     </div>
   );
@@ -81,6 +86,7 @@ export default function ProjectsSection() {
               <ProjectPreview
                 title={project.title}
                 category={project.category}
+                image={project.image}
               />
 
               <div className="flex flex-1 flex-col px-2 pb-2 pt-6">
@@ -116,6 +122,8 @@ export default function ProjectsSection() {
 
                   <a
                     href={project.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
                     className="font-heading font-semibold text-[#94A3B8] transition hover:text-[#22D3EE]"
                   >
                     GitHub →
@@ -123,6 +131,8 @@ export default function ProjectsSection() {
 
                   <a
                     href={project.demoUrl}
+                    target="_blank"
+                    rel="noreferrer"
                     className="font-heading font-semibold text-[#94A3B8] transition hover:text-[#22D3EE]"
                   >
                     Demo →
