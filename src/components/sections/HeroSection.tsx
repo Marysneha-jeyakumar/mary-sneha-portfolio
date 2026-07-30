@@ -2,21 +2,22 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 import { Button } from "@/components/ui";
 import { heroTechTags } from "@/data/techTags";
+import { siteConfig } from "@/data/site";
 
 const socialLinks = [
   {
     label: "GitHub",
-    href: "https://github.com/yourusername",
+    href: siteConfig.github,
     icon: FaGithub,
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/yourusername",
+    href: siteConfig.linkedin,
     icon: FaLinkedin,
   },
   {
     label: "Email",
-    href: "mailto:marysneha@example.com",
+    href: `mailto:${siteConfig.email}`,
     icon: MdOutlineMail,
   },
 ];

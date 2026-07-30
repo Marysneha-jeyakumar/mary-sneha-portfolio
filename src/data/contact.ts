@@ -1,33 +1,34 @@
+import { siteConfig } from "@/data/site";
 import type { ContactItem } from "@/types/portfolio";
 
 export const contactItems: ContactItem[] = [
   {
     label: "Email",
-    value: "jeyakumarsneha21@gmail.com",
-    href: "mailto:jeyakumarsneha21@gmail.com",
+    value: siteConfig.email,
+    href: `mailto:${siteConfig.email}`,
     icon: "mail",
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/mary-sneha",
-    href: "www.linkedin.com/in/mary-sneha",
+    value: siteConfig.linkedin.replace("https://", ""),
+    href: siteConfig.linkedin,
     icon: "linkedin",
   },
   {
     label: "GitHub",
-    value: "github.com/MARY101102",
-    href: "https://github.com/MARY101102",
+    value: siteConfig.github.replace("https://", ""),
+    href: siteConfig.github,
     icon: "github",
   },
   {
     label: "Location",
-    value: "Sri Lanka",
+    value: siteConfig.location,
     href: "#",
     icon: "location",
   },
   {
     label: "Availability",
-    value: "Open to internships, collaborations, and entry-level opportunities.",
+    value: siteConfig.availability,
     href: "#",
     icon: "calendar",
   },

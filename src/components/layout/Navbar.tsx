@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FiMail, FiMenu, FiX } from "react-icons/fi";
+import { siteConfig } from "@/data/site";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -16,17 +17,17 @@ const navLinks = [
 const socialLinks = [
   {
     label: "GitHub",
-    href: "https://github.com/MARY101102",
+    href: siteConfig.github,
     icon: FaGithub,
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/mary-sneha",
+    href: siteConfig.linkedin,
     icon: FaLinkedin,
   },
   {
     label: "Email",
-    href: "mailto:jeyakumarsneha21@gmail.com",
+    href: `mailto:${siteConfig.email}`,
     icon: FiMail,
   },
 ];
