@@ -1,14 +1,11 @@
 import { Badge, Card, IconBox } from "@/components/ui";
+import { certificationItems, educationItems } from "@/data/education";
 import { principles } from "@/data/principles";
-import { studies } from "@/data/studies";
 import { currentlyLearningTags } from "@/data/techTags";
 
 export default function AboutSection() {
   return (
-    <section
-      id="about"
-      className="section-container relative px-4 py-24"
-    >
+    <section id="about" className="section-container relative px-4 py-24">
       {/* About main card */}
       <Card className="relative overflow-hidden p-6 md:p-10">
         <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-[#8B5CF6]/10 blur-3xl" />
@@ -72,59 +69,172 @@ export default function AboutSection() {
         </div>
       </Card>
 
-      {/* Principle cards */}
-      <div className="mt-8 grid gap-6 md:grid-cols-3">
+      {/* Smaller principle cards */}
+      <div className="mt-8 grid gap-4 md:grid-cols-3">
         {principles.map((item) => (
-          <Card key={item.title} className="text-center">
+          <Card
+            key={item.title}
+            className="flex items-start gap-4 rounded-2xl p-4 md:p-5"
+          >
             <IconBox
               icon={item.icon}
-              className="mx-auto h-16 w-16 rounded-full border-[#8B5CF6]/70"
+              className="h-11 w-11 shrink-0 rounded-xl border-[#8B5CF6]/70"
               iconClassName="text-[#8B5CF6]"
             />
 
-            <h3 className="font-heading mt-5 text-2xl font-bold text-[#F8FAFC]">
-              {item.title}
-            </h3>
+            <div>
+              <h3 className="font-heading text-lg font-bold text-[#F8FAFC]">
+                {item.title}
+              </h3>
 
-            <div className="mx-auto mt-3 h-[2px] w-12 bg-gradient-to-r from-[#8B5CF6] to-[#22D3EE]" />
+              <div className="mt-2 h-[2px] w-10 bg-gradient-to-r from-[#8B5CF6] to-[#22D3EE]" />
 
-            <p className="mt-5 text-sm leading-6 text-[#94A3B8]">
-              {item.description}
-            </p>
+              <p className="mt-3 text-sm leading-6 text-[#94A3B8]">
+                {item.description}
+              </p>
+            </div>
           </Card>
         ))}
       </div>
 
-      {/* Studies section */}
+      {/* Education & Certifications section */}
       <div className="mt-10 rounded-3xl border border-[#24304A] bg-[#111827]/50 p-6 md:p-8">
-        <div className="mb-8 flex items-center gap-3">
-          <IconBox icon="book" className="h-11 w-11" />
+        <div className="mb-6 flex items-center gap-3">
+          <IconBox icon="graduation" className="h-11 w-11" />
 
           <div>
             <h2 className="font-heading text-3xl font-bold text-[#F8FAFC]">
-              Studies
+              Education & Certifications
             </h2>
-            <div className="mt-2 h-[2px] w-16 bg-gradient-to-r from-[#8B5CF6] to-[#22D3EE]" />
+            <div className="mt-2 h-[2px] w-24 bg-gradient-to-r from-[#8B5CF6] to-[#22D3EE]" />
           </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {studies.map((item) => (
-            <Card key={item.title} className="text-center">
-              <IconBox
-                icon={item.icon}
-                className="mx-auto h-16 w-16 rounded-full"
-              />
+        <p className="max-w-3xl text-sm leading-6 text-[#94A3B8] md:text-base">
+          My formal academic background and selected certifications that support
+          my AI, data science, and software development journey.
+        </p>
 
-              <h3 className="font-heading mt-5 text-xl font-bold text-[#F8FAFC]">
-                {item.title}
-              </h3>
-
-              <p className="mt-4 text-sm leading-6 text-[#94A3B8]">
-                {item.description}
+        {/* Academic Education */}
+        <div className="mt-10">
+          <div className="mb-5 flex items-center justify-between gap-4">
+            <div>
+              <p className="font-heading text-xs font-semibold uppercase tracking-[0.3em] text-[#22D3EE]">
+                Academic Education
               </p>
+              <h3 className="font-heading mt-2 text-2xl font-bold text-[#F8FAFC]">
+                Current University & Degree
+              </h3>
+            </div>
+          </div>
+
+          {educationItems.map((item) => (
+            <Card
+              key={item.title}
+              className="relative overflow-hidden border-[#22D3EE]/30 p-6 md:p-7"
+            >
+              <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-[#22D3EE]/10 blur-3xl" />
+
+              <div className="relative z-10 grid gap-6 lg:grid-cols-[auto_1fr] lg:items-start">
+                <IconBox
+                  icon={item.icon}
+                  className="h-16 w-16 rounded-2xl border-[#22D3EE]/70"
+                  iconClassName="text-[#22D3EE]"
+                />
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#22D3EE]">
+                    {item.title}
+                  </p>
+
+                  <h3 className="font-heading mt-3 text-2xl font-bold text-[#F8FAFC] md:text-3xl">
+                    {item.qualification}
+                  </h3>
+
+                  <p className="mt-2 text-base font-medium text-[#CBD5E1]">
+                    {item.institution}
+                  </p>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    <Badge>{item.status}</Badge>
+                    <Badge>{item.period}</Badge>
+                  </div>
+
+                  <p className="mt-5 max-w-4xl text-sm leading-6 text-[#94A3B8] md:text-base md:leading-7">
+                    {item.description}
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {item.focusAreas.map((focus) => (
+                      <Badge key={focus}>{focus}</Badge>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </Card>
           ))}
+        </div>
+
+        {/* Certifications */}
+        <div className="mt-12">
+          <div className="mb-5">
+            <p className="font-heading text-xs font-semibold uppercase tracking-[0.3em] text-[#8B5CF6]">
+              Selected Certifications
+            </p>
+            <h3 className="font-heading mt-2 text-2xl font-bold text-[#F8FAFC]">
+              Additional Learning Proof
+            </h3>
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-[#94A3B8]">
+              These certifications are shown separately from my degree so my
+              academic education remains clear and the certificates support my
+              learning journey without mixing with it.
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {certificationItems.map((item) => (
+              <Card key={item.title} className="flex h-full flex-col p-6">
+                <IconBox
+                  icon={item.icon}
+                  className="h-14 w-14 rounded-2xl border-[#8B5CF6]/70"
+                  iconClassName="text-[#8B5CF6]"
+                />
+
+                <p className="mt-5 text-xs font-semibold uppercase tracking-[0.25em] text-[#8B5CF6]">
+                  Certification
+                </p>
+
+                <h3 className="font-heading mt-3 text-2xl font-bold text-[#F8FAFC]">
+                  {item.title}
+                </h3>
+
+                <p className="mt-2 text-sm font-medium text-[#CBD5E1]">
+                  Issued by: {item.issuer}
+                </p>
+
+                <Badge className="mt-4 w-fit">{item.completed}</Badge>
+
+                <p className="mt-5 flex-1 text-sm leading-6 text-[#94A3B8]">
+                  {item.description}
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {item.skills.map((skill) => (
+                    <Badge key={skill}>{skill}</Badge>
+                  ))}
+                </div>
+
+                <a
+                  href={item.certificateUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-heading mt-7 inline-flex items-center justify-center rounded-xl border border-[#24304A] bg-[#0A0F1C]/70 px-5 py-3 text-sm font-semibold text-[#F8FAFC] transition hover:border-[#22D3EE] hover:text-[#22D3EE]"
+                >
+                  View Certificate →
+                </a>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
 
