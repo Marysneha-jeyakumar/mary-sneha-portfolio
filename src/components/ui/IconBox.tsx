@@ -21,6 +21,9 @@ import {
 } from "react-icons/fi";
 import { FaGithub, FaLinkedin, FaBrain } from "react-icons/fa";
 import { TbNetwork, TbPuzzle, TbCloudCog } from "react-icons/tb";
+import { FiAward } from "react-icons/fi";
+import { PiCertificate } from "react-icons/pi";
+import { LuGraduationCap } from "react-icons/lu";
 
 type IconBoxProps = {
   icon: string;
@@ -55,6 +58,10 @@ const iconMap: Record<string, IconType> = {
   book: FiBookOpen,
   briefcase: FiBriefcase,
   pie: FiPieChart,
+
+    graduation: LuGraduationCap,
+  award: FiAward,
+  certificate: PiCertificate,
 };
 
 export default function IconBox({

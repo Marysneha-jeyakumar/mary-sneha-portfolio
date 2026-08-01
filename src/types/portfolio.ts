@@ -40,3 +40,24 @@ export type ContactItem = {
   href: string;
   icon: string;
 };
+
+export type EducationItem = {
+  title: string;
+  institution: string;
+  qualification: string;
+  period: string;
+  status: string;
+  description: string;
+  focusAreas: string[];
+  icon: string;
+};
+
+export type CertificationItem = {
+  title: string;
+  issuer: string;
+  completed: string;
+  description: string;
+  skills: string[];
+  certificateUrl: string;
+  icon: string;
+};
