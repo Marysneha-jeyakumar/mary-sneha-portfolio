@@ -22,7 +22,7 @@ export const educationItems: EducationItem[] = [
 
 export const certificationItems: CertificationItem[] = [
   {
-    title: "[Certificate Title 1]",
+    title: "[Your Certificate 1 Title]",
     issuer: "[Issuer / Platform Name]",
     completed: "[Month Year]",
     description:
@@ -32,7 +32,7 @@ export const certificationItems: CertificationItem[] = [
     icon: "award",
   },
   {
-    title: "[Certificate Title 2]",
+    title: "[Your Certificate 2 Title]",
     issuer: "[Issuer / Platform Name]",
     completed: "[Month Year]",
     description:
