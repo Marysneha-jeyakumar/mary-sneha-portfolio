@@ -3,17 +3,16 @@ import type { CertificationItem, EducationItem } from "@/types/portfolio";
 export const educationItems: EducationItem[] = [
   {
     title: "Current Education",
-    institution: "[Your University Name]",
-    qualification: "[Your Degree / Course Name]",
-    period: "[Start Year] – Present",
+    institution: "[Srilanka Institute of Information technoloy]",
+    qualification: "[Bachelor of Science Honours in Information Technology Specialized in Data Science]",
+    period: "[2024] – 2026",
     status: "Undergraduate",
     description:
-      "I am currently building my foundation in software engineering, data science, machine learning, databases, and full-stack development through academic learning and practical projects.",
+      "I am currently building my career in  data science, machine learning, databases, and full-stack development through academic learning and practical projects.",
     focusAreas: [
-      "Software Engineering",
       "Data Science",
       "Machine Learning",
-      "Databases",
+      "AI Development",
       "Web Development",
     ],
     icon: "graduation",
@@ -22,23 +21,13 @@ export const educationItems: EducationItem[] = [
 
 export const certificationItems: CertificationItem[] = [
   {
-    title: "[Your Certificate 1 Title]",
-    issuer: "[Issuer / Platform Name]",
-    completed: "[Month Year]",
+    title: "[full stack web development]",
+    issuer: "[Uki technology school]",
+    completed: "[december-2025]",
     description:
-      "This certification helped me strengthen my knowledge in [main topic], including practical concepts related to [skill 1], [skill 2], and [skill 3].",
-    skills: ["Machine Learning", "Python", "Data Science"],
+      "This certification helped me strengthen my knowledge in MERN STACK, including practical concepts related to Backend, API building, and overall webdevelopment foundation.",
+    skills: ["MERN stack", "Frame works", "Backend API "],
     certificateUrl: "/certificates/certificate-1.pdf",
     icon: "award",
-  },
-  {
-    title: "[Your Certificate 2 Title]",
-    issuer: "[Issuer / Platform Name]",
-    completed: "[Month Year]",
-    description:
-      "This certification improved my understanding of [main topic] and helped me connect theory with real project-based learning.",
-    skills: ["SQL", "Analytics", "AI"],
-    certificateUrl: "/certificates/certificate-2.pdf",
-    icon: "certificate",
   },
 ];

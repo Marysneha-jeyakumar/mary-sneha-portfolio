@@ -15,9 +15,9 @@ export const whatIBuildTags = [
 ];
 
 export const currentlyLearningTags = [
-  "Python",
-  "SQL",
-  "Machine Learning",
-  "React",
   "MLOps",
+  "AI engineering",
+  "Machine Learning",
+  "Data analytics",
+  "API building",
 ];
