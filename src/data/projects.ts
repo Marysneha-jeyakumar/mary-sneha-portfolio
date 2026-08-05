@@ -19,7 +19,7 @@ export const projects: Project[] = [
   ],
   caseStudyUrl: "",
   githubUrl: "https://github.com/Marysneha-jeyakumar/fraud-detection-system",
-  demoUrl: "",
+ // demoUrl removed for now
   image: "/images/projects/fraud-detection-system.png"
 },
  {
@@ -52,8 +52,7 @@ export const projects: Project[] = [
 
   githubUrl: "https://github.com/Marysneha-jeyakumar/ml-diabetes-risk-dashboard",
 
-  demoUrl: "",
-
+// demoUrl removed for now
   image: "/projects/sugarsense-diabetes-risk-api.png"
 },
  {
@@ -84,8 +83,7 @@ export const projects: Project[] = [
 
   githubUrl: "https://github.com/Marysneha-jeyakumar/ai-resume-analyzer",
 
-  demoUrl: "",
-
+// demoUrl removed for now
   image: "/images/projects/ai-resume-analyzer.png"
 }
 ];

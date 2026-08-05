@@ -31,7 +31,7 @@ export type Project = {
   techStack: string[];
   caseStudyUrl: string;
   githubUrl: string;
-  demoUrl: string;
+  demoUrl?: string;
 };
 
 export type ContactItem = {

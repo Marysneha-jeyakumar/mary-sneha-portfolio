@@ -12,6 +12,10 @@ function getProjectIcon(category: string) {
   return "folder";
 }
 
+function hasValidLink(url?: string) {
+  return Boolean(url && url.trim() !== "" && url !== "#");
+}
+
 function ProjectPreview({
   title,
   category,
@@ -129,14 +133,16 @@ export default function ProjectsSection() {
                     GitHub →
                   </a>
 
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-heading font-semibold text-[#94A3B8] transition hover:text-[#22D3EE]"
-                  >
-                    Demo →
-                  </a>
+                  {hasValidLink(project.demoUrl) ? (
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-heading font-semibold text-[#94A3B8] transition hover:text-[#22D3EE]"
+                    >
+                      Demo →
+                    </a>
+                  ) : null}
                 </div>
               </div>
             </Card>
