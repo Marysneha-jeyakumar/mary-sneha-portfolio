@@ -2,6 +2,7 @@ import { Badge, Card, IconBox } from "@/components/ui";
 import { certificationItems, educationItems } from "@/data/education";
 import { principles } from "@/data/principles";
 import { currentlyLearningTags } from "@/data/techTags";
+import Image from "next/image";
 
 export default function AboutSection() {
   return (
@@ -41,13 +42,18 @@ export default function AboutSection() {
               <div className="absolute -right-6 -top-6 h-28 w-28 rounded-full bg-[#22D3EE]/20 blur-3xl" />
               <div className="absolute -bottom-6 -left-6 h-28 w-28 rounded-full bg-[#8B5CF6]/20 blur-3xl" />
 
-              <div className="relative mx-auto flex h-56 w-56 items-center justify-center rounded-full border border-[#8B5CF6] bg-gradient-to-br from-[#162033] to-[#0A0F1C] shadow-lg shadow-[#8B5CF6]/20">
-                <div className="flex h-44 w-44 items-center justify-center rounded-full border border-[#22D3EE]/40 bg-[#111827]">
-                  <span className="font-heading text-6xl font-bold text-gradient">
-                    MS
-                  </span>
-                </div>
-              </div>
+             <div className="relative mx-auto flex h-56 w-56 items-center justify-center rounded-full border border-[#8B5CF6] bg-gradient-to-br from-[#162033] to-[#0A0F1C] p-3 shadow-lg shadow-[#8B5CF6]/20">
+  <div className="relative h-full w-full overflow-hidden rounded-full border border-[#22D3EE]/40 bg-[#111827]">
+    <Image
+      src="/images/profile/profile.jpeg"
+      alt="Mary Sneha profile photo"
+      fill
+      priority
+      className="object-cover"
+      sizes="224px"
+    />
+  </div>
+</div>
 
               <div className="relative mt-6 text-center">
                 <h3 className="font-heading text-2xl font-bold text-[#F8FAFC]">
