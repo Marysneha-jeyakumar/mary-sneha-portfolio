@@ -86,6 +86,6 @@ export const projects: Project[] = [
 
   demoUrl: "",
 
-  image: "/projects/ai-resume-analyzer.png"
+  image: "/images/projects/ai-resume-analyzer.png"
 }
 ];

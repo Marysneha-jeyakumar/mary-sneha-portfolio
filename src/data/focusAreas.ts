@@ -2,21 +2,21 @@ import type { FocusArea } from "@/types/portfolio";
 
 export const focusAreas: FocusArea[] = [
   {
-    title: "AI & Machine Learning",
+    title: "Machine Learning",
     icon: "neural",
     description:
-      "Building predictive models, evaluating performance, and applying machine learning to real-world problems.",
+      "Building predictive models, preparing datasets, evaluating model performance, and applying ML to practical problems.",
   },
   {
-    title: "Data-Driven Applications",
+    title: "Data Science & Analytics",
     icon: "database",
     description:
-      "Creating applications that combine data pipelines, analytics, dashboards, and decision support.",
+      "Exploring data, cleaning datasets, creating insights, and using visualizations to support better decisions.",
   },
   {
-    title: "End-to-End Systems",
+    title: "AI-Powered Applications",
     icon: "layers",
     description:
-      "Designing full-stack systems from frontend interfaces to backend APIs, databases, and deployment.",
+      "Developing practical applications that combine frontend interfaces, backend APIs, AI services, and deployment.",
   },
 ];
