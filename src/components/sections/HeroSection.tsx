@@ -1,8 +1,15 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
-import { Button } from "@/components/ui";
-import { heroTechTags } from "@/data/techTags";
+import { Badge, Button } from "@/components/ui";
 import { siteConfig } from "@/data/site";
+
+const heroTags = [
+  "Machine Learning",
+  "Data Science",
+  "Python",
+  "SQL",
+  "AI Systems",
+];
 
 const socialLinks = [
   {
@@ -26,82 +33,59 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-className="section-container relative flex min-h-screen items-center justify-center overflow-hidden px-4 pb-20 pt-32 md:pt-28"    >
-      {/* Soft center glow */}
-      <div className="soft-glow left-1/2 top-1/4 -translate-x-1/2" />
+      className="section-container relative flex min-h-screen items-center px-4 pb-20 pt-32"
+    >
+      <div className="absolute left-0 top-32 h-72 w-72 rounded-full bg-[#4F46E5]/20 blur-3xl" />
+      <div className="absolute bottom-20 right-0 h-72 w-72 rounded-full bg-[#22D3EE]/10 blur-3xl" />
 
-      {/* Corner network decorations */}
-      <div className="corner-network left-0 top-6" />
-      <div className="corner-network right-0 top-10 rotate-90" />
-      <div className="corner-network bottom-8 left-0 -rotate-90" />
-      <div className="corner-network bottom-8 right-0 rotate-180" />
+      <div className="corner-network absolute right-4 top-28 hidden h-48 w-48 opacity-60 md:block" />
+      <div className="corner-network absolute bottom-16 left-4 hidden h-48 w-48 rotate-180 opacity-40 md:block" />
 
-      <div className="relative z-10 text-center">
-        <h1 className="font-heading text-6xl font-bold tracking-tight text-[#F8FAFC] md:text-8xl lg:text-9xl">
-          Mary Sneha
-        </h1>
-
-        <p className="font-heading mt-5 text-sm font-medium uppercase tracking-[0.45em] text-gradient md:text-base">
+      <div className="relative z-10 mx-auto max-w-5xl text-center">
+        <p className="font-heading text-sm font-semibold uppercase tracking-[0.45em] text-[#22D3EE]">
           AI & Data Science Portfolio
         </p>
 
-        <div className="mx-auto mt-4 flex w-44 items-center justify-center gap-2">
-          <span className="h-[2px] flex-1 bg-[#8B5CF6]" />
-          <span className="h-2 w-2 rounded-full bg-[#22D3EE]" />
-          <span className="h-[2px] flex-1 bg-[#22D3EE]" />
-        </div>
+        <h1 className="hero-name-font mt-7 text-6xl leading-[0.95] text-[#F8FAFC] md:text-8xl lg:text-9xl">
+          Mary <span className="text-gradient">Sneha</span>
+        </h1>
 
-        <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-[#94A3B8] md:text-xl">
+        <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-[#CBD5E1] md:text-xl">
           Building practical software, data, and AI systems that solve
           real-world problems.
         </p>
 
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button href="#projects" className="px-10">
-            View Projects
-          </Button>
+        <div className="mt-9 flex flex-wrap justify-center gap-3">
+          {heroTags.map((tag) => (
+            <Badge key={tag}>{tag}</Badge>
+          ))}
+        </div>
 
-          <Button href="/resume.pdf" variant="secondary" className="px-10">
+        <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+          <Button href="#projects">View Projects</Button>
+
+          <Button href="/resume.pdf" variant="secondary">
             Download Resume
           </Button>
         </div>
 
-        {/* Social icons */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-5 text-[#94A3B8]">
-          {socialLinks.map((item, index) => {
+        <div className="mt-10 flex justify-center gap-5">
+          {socialLinks.map((item) => {
             const Icon = item.icon;
 
             return (
-              <div key={item.label} className="flex items-center gap-5">
-                <a
-                  href={item.href}
-                  target={item.label === "Email" ? undefined : "_blank"}
-                  rel={item.label === "Email" ? undefined : "noreferrer"}
-                  aria-label={item.label}
-                  className="group flex items-center gap-3 transition hover:text-[#22D3EE]"
-                >
-                  <Icon className="text-xl transition group-hover:scale-110" />
-                  <span className="text-sm md:text-base">{item.label}</span>
-                </a>
-
-                {index !== socialLinks.length - 1 ? (
-                  <span className="hidden h-5 w-px bg-[#24304A] sm:block" />
-                ) : null}
-              </div>
+              <a
+                key={item.label}
+                href={item.href}
+                target={item.label === "Email" ? undefined : "_blank"}
+                rel={item.label === "Email" ? undefined : "noreferrer"}
+                aria-label={item.label}
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-[#24304A] bg-[#111827]/80 text-xl text-[#94A3B8] transition hover:border-[#22D3EE] hover:text-[#22D3EE]"
+              >
+                <Icon />
+              </a>
             );
           })}
-        </div>
-
-        {/* Tech tags */}
-        <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm text-[#94A3B8]">
-          {heroTechTags.map((item) => (
-            <span
-              key={item}
-              className="rounded-lg border border-[#24304A] bg-[#111827]/70 px-4 py-2 transition hover:border-[#22D3EE] hover:text-[#22D3EE]"
-            >
-              {item}
-            </span>
-          ))}
         </div>
       </div>
     </section>

@@ -31,6 +31,12 @@ body {
   font-family: var(--font-space-grotesk), system-ui, sans-serif;
 }
 
+.hero-name-font {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+}
+
 .text-gradient {
   background: linear-gradient(90deg, var(--accent), var(--secondary));
   -webkit-background-clip: text;
