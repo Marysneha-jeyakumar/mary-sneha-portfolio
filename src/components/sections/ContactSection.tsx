@@ -29,9 +29,6 @@ export default function ContactSection() {
       <div className="relative z-10">
         {/* Compact section header */}
         <div className="mx-auto max-w-5xl text-center">
-          <p className="font-heading text-sm font-semibold uppercase tracking-[0.45em] text-[#22D3EE]">
-            Contact
-          </p>
 
           <h2
             className="font-heading mt-4 font-semibold tracking-tight text-[#F8FAFC]"
