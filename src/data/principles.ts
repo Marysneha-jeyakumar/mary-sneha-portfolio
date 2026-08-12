@@ -5,18 +5,18 @@ export const principles: Principle[] = [
     title: "Problem Solver",
     icon: "puzzle",
     description:
-      "I focus on understanding the real problem before building the solution.",
+      "I start by understanding the problem, constraints, and users before choosing the solution.",
   },
   {
     title: "Data Driven",
-    icon: "bar-chart",
+    icon: "chart",
     description:
-      "I use data, metrics, and analysis to support better decisions.",
+      "I use data, experiments, and measurable results to guide technical decisions.",
   },
   {
     title: "Practical Builder",
-    icon: "wrench",
+    icon: "tool",
     description:
-      "I build simple, useful systems that can be explained and improved.",
+      "I build practical systems with clear architecture that can evolve, scale, and be improved.",
   },
 ];

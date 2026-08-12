@@ -3,20 +3,20 @@ import type { FocusArea } from "@/types/portfolio";
 export const focusAreas: FocusArea[] = [
   {
     title: "Machine Learning",
-    icon: "neural",
+    icon: "brain",
     description:
-      "Building predictive models, preparing datasets, evaluating model performance, and applying ML to practical problems.",
+      "Building and evaluating practical models for prediction and decision support.",
   },
   {
     title: "Data Science & Analytics",
-    icon: "database",
+    icon: "chart",
     description:
-      "Exploring data, cleaning datasets, creating insights, and using visualizations to support better decisions.",
+      "Exploring data, identifying patterns, and turning analysis into useful insights.",
   },
   {
     title: "AI-Powered Applications",
     icon: "layers",
     description:
-      "Developing practical applications that combine frontend interfaces, backend APIs, AI services, and deployment.",
+      "Creating applications that combine software, APIs, data, and AI capabilities.",
   },
 ];

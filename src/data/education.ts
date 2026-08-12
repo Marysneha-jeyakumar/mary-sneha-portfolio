@@ -3,12 +3,13 @@ import type { CertificationItem, EducationItem } from "@/types/portfolio";
 export const educationItems: EducationItem[] = [
   {
     title: "Current Education",
-    institution: "[Srilanka Institute of Information technoloy]",
-    qualification: "[Bachelor of Science Honours in Information Technology Specialized in Data Science]",
-    period: "[2024] – 2026",
+    institution: "Sri Lanka Institute of Information Technology (SLIIT)",
+    qualification:
+      "Bachelor of Science (Hons) in Information Technology — Specialization in Data Science",
+    period: "2024 – 2026",
     status: "Undergraduate",
     description:
-      "I am currently building my career in  data science, machine learning, databases, and full-stack development through academic learning and practical projects.",
+      "Building a strong foundation in data science, machine learning, databases, and full-stack development through academic study and practical projects.",
     focusAreas: [
       "Data Science",
       "Machine Learning",
@@ -21,12 +22,12 @@ export const educationItems: EducationItem[] = [
 
 export const certificationItems: CertificationItem[] = [
   {
-    title: "[full stack web development]",
-    issuer: "[Uki technology school]",
-    completed: "[december-2025]",
+    title: "Full Stack Web Development",
+    issuer: "Uki Technology School",
+    completed: "December 2025",
     description:
-      "This certification helped me strengthen my knowledge in MERN STACK, including practical concepts related to Backend, API building, and overall webdevelopment foundation.",
-    skills: ["MERN stack", "Frame works", "Backend API "],
+      "Strengthened my practical skills in MERN stack development, backend APIs, and modern web application architecture.",
+    skills: ["MERN Stack", "Backend API", "Web Development"],
     certificateUrl: "/certificates/certificate-1.pdf",
     icon: "award",
   },

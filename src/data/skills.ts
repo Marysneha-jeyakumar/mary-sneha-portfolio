@@ -1,50 +1,46 @@
 import type { SkillCategory } from "@/types/portfolio";
 
-export const skills: SkillCategory[] = [
+export const skillCategories: SkillCategory[] = [
   {
     title: "Programming",
     icon: "code",
     description:
-      "Writing application logic, data scripts, and queries for real-world systems.",
+      "Languages I use for application logic, data work, and development tasks.",
     skills: ["Python", "SQL", "JavaScript", "TypeScript"],
   },
   {
     title: "Frontend",
     icon: "monitor",
-    description: "Building clean, responsive, and user-friendly interfaces.",
+    description:
+      "Technologies I use to build responsive and user-friendly interfaces.",
     skills: ["React", "Next.js", "Tailwind CSS", "HTML/CSS"],
   },
   {
     title: "Backend & APIs",
     icon: "server",
     description:
-      "Creating reliable services that connect applications, databases, and models.",
+      "Tools and frameworks I use to build APIs and backend services.",
     skills: ["Node.js", "FastAPI", "REST APIs", "Spring Boot"],
   },
   {
-    title: "Data Science",
+    title: "Data & ML",
     icon: "chart",
     description:
-      "Exploring datasets, preparing features, and extracting useful insights.",
+      "Libraries and concepts I use for data science and machine learning work.",
     skills: ["Pandas", "NumPy", "Scikit-learn", "Matplotlib"],
   },
   {
-    title: "Machine Learning",
-    icon: "brain",
+    title: "Databases",
+    icon: "database",
     description:
-      "Building and evaluating models for practical prediction problems.",
-    skills: [
-      "Classification",
-      "Regression",
-      "Evaluation",
-      "Feature Engineering",
-    ],
+      "Databases and storage tools I use in software and data projects.",
+    skills: ["PostgreSQL", "MongoDB", "MySQL", "Supabase"],
   },
   {
     title: "Tools & Platforms",
-    icon: "tools",
+    icon: "tool",
     description:
-      "Managing code, deployment, version control, and development workflows.",
+      "Tools I use for development, deployment, version control, and workflows.",
     skills: ["Git", "GitHub", "Docker", "VS Code", "Vercel"],
   },
 ];
