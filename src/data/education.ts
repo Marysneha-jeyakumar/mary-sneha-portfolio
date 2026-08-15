@@ -6,7 +6,7 @@ export const educationItems: EducationItem[] = [
     institution: "Sri Lanka Institute of Information Technology (SLIIT)",
     qualification:
       "Bachelor of Science (Hons) in Information Technology — Specialization in Data Science",
-    period: "2024 – 2026",
+    period: "2024 – current",
     status: "Undergraduate",
     description:
       "Building a strong foundation in data science, machine learning, databases, and full-stack development through academic study and practical projects.",
