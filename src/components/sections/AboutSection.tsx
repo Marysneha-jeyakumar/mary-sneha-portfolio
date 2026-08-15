@@ -103,8 +103,8 @@ export default function AboutSection() {
         ))}
       </div>
 
-      {/* Education & Certifications */}
-      <div className="mt-10 rounded-3xl border border-[#24304A]/70 bg-[#111827]/40 p-6 md:p-8">
+      {/* Education & Certifications - no large outer card */}
+      <div className="mt-12">
         {/* Section heading */}
         <div className="flex items-start gap-4">
           <IconBox
@@ -138,16 +138,16 @@ export default function AboutSection() {
           </div>
 
           {educationItems.map((item) => (
-            <div
+            <Card
               key={item.title}
-              className="relative overflow-hidden rounded-3xl border border-[#22D3EE]/35 bg-[#0A0F1C]/55 p-5 md:p-6"
+              className="relative overflow-hidden rounded-3xl border-[#22D3EE]/35 bg-[#111827]/65 p-5 md:p-6"
             >
               <div className="absolute right-0 top-0 h-36 w-36 rounded-full bg-[#22D3EE]/8 blur-3xl" />
 
               <div className="relative z-10 grid gap-5 md:grid-cols-[auto_1fr] md:items-start">
                 <IconBox
                   icon={item.icon}
-                  className="h-13 w-13 rounded-2xl border-[#22D3EE]/60"
+                  className="h-14 w-14 rounded-2xl border-[#22D3EE]/60"
                   iconClassName="text-[#22D3EE]"
                 />
 
@@ -176,7 +176,7 @@ export default function AboutSection() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
 
@@ -191,9 +191,9 @@ export default function AboutSection() {
 
           <div className="grid gap-5 md:grid-cols-2">
             {certificationItems.map((item) => (
-              <div
+              <Card
                 key={item.title}
-                className="rounded-3xl border border-[#24304A]/80 bg-[#162033]/65 p-5 transition hover:border-[#8B5CF6]/60"
+                className="rounded-3xl border-[#24304A]/80 bg-[#111827]/65 p-5 transition hover:border-[#8B5CF6]/60"
               >
                 <div className="flex items-start gap-4">
                   <IconBox
@@ -235,13 +235,13 @@ export default function AboutSection() {
                 >
                   View Certificate →
                 </a>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
 
         {/* Current Focus */}
-        <div className="mt-10 rounded-2xl border border-[#24304A]/70 bg-[#0A0F1C]/45 px-5 py-4">
+        <div className="mt-10 rounded-2xl border border-[#24304A]/70 bg-[#111827]/45 px-5 py-4">
           <div className="flex flex-col gap-4 md:flex-row md:items-center">
             <div className="flex items-center gap-3 md:min-w-fit">
               <IconBox
