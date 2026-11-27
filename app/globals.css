@@ -1,137 +1,167 @@
 @import "tailwindcss";
 
-:root {
-  --background: #0a0f1c;
-  --surface: #111827;
-  --card: #162033;
-  --primary: #4f46e5;
-  --accent: #8b5cf6;
-  --secondary: #22d3ee;
-  --text: #f8fafc;
-  --muted: #94a3b8;
-  --border: #24304a;
+/* =========================================================
+   Design tokens
+   Every colour used in the UI is defined here. Components use
+   the generated utilities (bg-cream, text-navy, border-line …)
+   instead of hard-coded hex values.
+   ========================================================= */
+@theme {
+  /* Surfaces */
+  --color-cream: #fbf7f0; /* page background (vanilla cream) */
+  --color-paper: #fffdf9; /* card surface */
+  --color-beige: #f3ece0; /* soft beige section / card variant */
+  --color-mist: #e6ebf1; /* light blue-grey card variant */
+  --color-mist-deep: #d5dde7;
+
+  /* Text */
+  --color-navy: #14213d; /* primary text, dark panels */
+  --color-navy-deep: #0f1a31;
+  --color-ink: #4a5468; /* body text  (7.1:1 on cream) */
+  --color-ink-muted: #5e6573; /* secondary text (5.5:1 on cream) */
+
+  /* Accent */
+  --color-burgundy: #7a1e2e; /* buttons, active nav, highlights (9.5:1 on cream) */
+  --color-burgundy-dark: #5e1622;
+  --color-burgundy-soft: #f3e3e5;
+  --color-rose: #d9a3ab; /* decorative borders only */
+  --color-gold: #d8b46e; /* decorative borders only */
+  --color-slate: #9fb1c4; /* decorative borders only */
+
+  /* Borders */
+  --color-line: #e3dacb;
+  --color-line-strong: #c9bba5;
+
+  /* Status */
+  --color-success: #2f6b3a;
+  --color-error: #a61b29;
+
+  /* Typography */
+  --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+
+  /* Shape */
+  --radius-card: 20px;
+
+  /* Motion */
+  --animate-marquee: marquee 48s linear infinite;
+  --animate-page-in: page-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes page-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
-* {
-  box-sizing: border-box;
-}
-
+/* =========================================================
+   Base
+   ========================================================= */
 html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background: var(--background);
-  color: var(--text);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
-.font-heading {
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
-}
-
-.hero-name-font {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.045em;
-}
-
-.text-gradient {
-  background: linear-gradient(90deg, var(--accent), var(--secondary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.section-container {
-  width: min(1120px, calc(100% - 32px));
-  margin: 0 auto;
-}
-
-.hero-bg {
-  background:
-    radial-gradient(circle at 50% 20%, rgba(79, 70, 229, 0.2), transparent 35%),
-    radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.16), transparent 28%),
-    radial-gradient(circle at 80% 35%, rgba(34, 211, 238, 0.14), transparent 30%),
-    linear-gradient(180deg, #0a0f1c 0%, #07111f 100%);
-}
-
-.network-pattern {
-  background-image:
-    radial-gradient(circle, rgba(34, 211, 238, 0.38) 1px, transparent 1.5px),
-    linear-gradient(rgba(36, 48, 74, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(36, 48, 74, 0.12) 1px, transparent 1px);
-  background-size:
-    90px 90px,
-    48px 48px,
-    48px 48px;
-}
-
-.corner-network {
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  opacity: 0.55;
-  background-image:
-    radial-gradient(circle at 20% 20%, #8b5cf6 0 3px, transparent 4px),
-    radial-gradient(circle at 55% 10%, #60a5fa 0 2px, transparent 3px),
-    radial-gradient(circle at 75% 40%, #22d3ee 0 3px, transparent 4px),
-    radial-gradient(circle at 35% 65%, #8b5cf6 0 2px, transparent 3px),
-    linear-gradient(35deg, transparent 20%, rgba(139, 92, 246, 0.35) 21%, transparent 22%),
-    linear-gradient(135deg, transparent 30%, rgba(34, 211, 238, 0.25) 31%, transparent 32%);
-}
-
-.soft-glow {
-  position: absolute;
-  width: 360px;
-  height: 360px;
-  border-radius: 9999px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.28), transparent 65%);
-  filter: blur(40px);
-  pointer-events: none;
-}
-
-/* Better anchor scrolling with fixed navbar */
-section[id] {
-  scroll-margin-top: 96px;
-}
-
-/* Prevent accidental horizontal scroll */
-html,
-body {
-  overflow-x: hidden;
-}
-
-/* Better text selection */
-::selection {
-  background: rgba(34, 211, 238, 0.25);
-  color: #f8fafc;
-}
-
-/* Better form font */
 input,
 textarea,
+select,
 button {
   font: inherit;
 }
 
-/* Subtle page divider helper */
-.section-divider {
-  height: 1px;
-  width: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(34, 211, 238, 0.28),
-    rgba(139, 92, 246, 0.28),
-    transparent
-  );
+::selection {
+  background: var(--color-burgundy-soft);
+  color: var(--color-navy);
 }
 
-/* Better mobile readability */
-@media (max-width: 640px) {
-  .section-container {
-    width: min(100% - 24px, 1120px);
+/* Visible keyboard focus everywhere */
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-burgundy);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+section[id],
+article[id] {
+  scroll-margin-top: 96px;
+}
+
+/* =========================================================
+   Helpers
+   ========================================================= */
+.container-page {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
+
+/* Italic burgundy highlight inside serif headings */
+.accent-word {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-burgundy);
+}
+
+/* Soft paper texture for the page background */
+.paper-bg {
+  background-color: var(--color-cream);
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(243, 227, 229, 0.55), transparent 32%),
+    radial-gradient(circle at 92% 14%, rgba(230, 235, 241, 0.7), transparent 30%);
+}
+
+.page-enter {
+  animation: var(--animate-page-in);
+}
+
+/* Pause any marquee on hover / keyboard focus */
+.marquee-pause:hover .animate-marquee,
+.marquee-pause:focus-within .animate-marquee {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .page-enter,
+  .animate-marquee {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
   }
 }

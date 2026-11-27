@@ -1,7 +1,7 @@
 import { siteConfig } from "@/data/site";
 import type { ContactItem } from "@/types/portfolio";
 
-export const contactItems: ContactItem[] = [
+export const contactLinks: ContactItem[] = [
   {
     label: "Email",
     value: siteConfig.email,
@@ -10,7 +10,7 @@ export const contactItems: ContactItem[] = [
   },
   {
     label: "LinkedIn",
-    value: siteConfig.linkedin.replace("https://", ""),
+    value: siteConfig.linkedin.replace("https://www.", ""),
     href: siteConfig.linkedin,
     icon: "linkedin",
   },
@@ -20,16 +20,17 @@ export const contactItems: ContactItem[] = [
     href: siteConfig.github,
     icon: "github",
   },
+];
+
+export const contactFacts: ContactItem[] = [
   {
     label: "Location",
     value: siteConfig.location,
-    href: "#",
     icon: "location",
   },
   {
     label: "Availability",
     value: siteConfig.availability,
-    href: "#",
     icon: "calendar",
   },
 ];
