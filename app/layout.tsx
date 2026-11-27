@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
+import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
 
@@ -8,10 +10,11 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-fraunces",
+  style: ["normal", "italic"],
+  axes: ["opsz"],
 });
 
 export const metadata: Metadata = {
@@ -38,9 +41,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: `${siteConfig.name} AI and Data Science Portfolio`,
+        width: 1729,
+        height: 910,
+        alt: `${siteConfig.name} — ${siteConfig.role} portfolio`,
       },
     ],
   },
@@ -62,9 +65,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
-        {children}
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+      <body className="paper-bg">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-burgundy focus:px-4 focus:py-2 focus:text-white"
+        >
+          Skip to content
+        </a>
+        <Navbar />
+        <main id="main" className="min-h-[calc(100svh-80px)] pt-20">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

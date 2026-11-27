@@ -1,9 +1,13 @@
 import type { IconType } from "react-icons";
+import { FaBrain, FaGithub, FaLinkedin } from "react-icons/fa";
 import {
+  FiArrowUpRight,
+  FiAward,
   FiBarChart2,
   FiBookOpen,
   FiBriefcase,
   FiCalendar,
+  FiCloud,
   FiCode,
   FiDatabase,
   FiDownload,
@@ -16,35 +20,29 @@ import {
   FiPieChart,
   FiSend,
   FiServer,
+  FiTarget,
   FiTool,
   FiUser,
 } from "react-icons/fi";
-import { FaGithub, FaLinkedin, FaBrain } from "react-icons/fa";
-import { TbNetwork, TbPuzzle, TbCloudCog } from "react-icons/tb";
-import { FiAward } from "react-icons/fi";
+import { LuGraduationCap, LuRocket } from "react-icons/lu";
 import { PiCertificate } from "react-icons/pi";
-import { LuGraduationCap } from "react-icons/lu";
+import { SiDocker, SiFastapi, SiPostgresql, SiPython, SiReact } from "react-icons/si";
+import { TbCloudCog, TbNetwork, TbPuzzle } from "react-icons/tb";
 
-type IconBoxProps = {
-  icon: string;
-  className?: string;
-  iconClassName?: string;
-};
-
-const iconMap: Record<string, IconType> = {
+export const iconMap = {
   code: FiCode,
   monitor: FiMonitor,
   server: FiServer,
   chart: FiBarChart2,
+  pie: FiPieChart,
   brain: FaBrain,
-  tools: FiTool,
   neural: TbNetwork,
+  tool: FiTool,
   database: FiDatabase,
   layers: FiLayers,
   puzzle: TbPuzzle,
-  "bar-chart": FiBarChart2,
-  wrench: FiTool,
   cloud: TbCloudCog,
+  cloudPlain: FiCloud,
   mail: FiMail,
   linkedin: FaLinkedin,
   github: FaGithub,
@@ -52,30 +50,52 @@ const iconMap: Record<string, IconType> = {
   calendar: FiCalendar,
   folder: FiFolder,
   external: FiExternalLink,
+  arrowUpRight: FiArrowUpRight,
   download: FiDownload,
   user: FiUser,
   send: FiSend,
   book: FiBookOpen,
   briefcase: FiBriefcase,
-  pie: FiPieChart,
-
-    graduation: LuGraduationCap,
+  target: FiTarget,
+  rocket: LuRocket,
+  graduation: LuGraduationCap,
   award: FiAward,
   certificate: PiCertificate,
+  react: SiReact,
+  python: SiPython,
+  fastapi: SiFastapi,
+  postgresql: SiPostgresql,
+  docker: SiDocker,
+} satisfies Record<string, IconType>;
+
+export type IconName = keyof typeof iconMap;
+
+type IconBoxProps = {
+  icon: IconName;
+  className?: string;
+  iconClassName?: string;
 };
 
+/** Rounded tile holding an icon. Pass `className` to change size or colours. */
 export default function IconBox({
   icon,
   className = "",
   iconClassName = "",
 }: IconBoxProps) {
-  const Icon = iconMap[icon] || FiCode;
+  const Icon = iconMap[icon];
 
   return (
-    <div
-      className={`inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[#24304A] bg-[#111827]/80 text-[#22D3EE] ${className}`}
+    <span
+      aria-hidden="true"
+      className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-burgundy-soft text-burgundy ${className}`}
     >
-      <Icon className={`text-2xl ${iconClassName}`} />
-    </div>
+      <Icon className={`text-xl ${iconClassName}`} />
+    </span>
   );
+}
+
+/** Bare icon (no tile) for inline use. */
+export function Icon({ icon, className = "" }: { icon: IconName; className?: string }) {
+  const Component = iconMap[icon];
+  return <Component aria-hidden="true" className={className} />;
 }

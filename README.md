@@ -16,17 +16,16 @@ The goal of this project is to create a professional online presence for interns
 
 ## Features
 
-* Responsive personal portfolio website
-* Dark AI/Data Science themed interface
-* Hero section with clear role and call-to-action buttons
-* About section with profile image and personal introduction
-* Education and certifications section
-* Skills grouped by technical category
-* Project case-study cards
-* Resume download option
+* Seven routed pages: Home, Projects, Technology, Case Studies, Journey, About, Contact
+* Light editorial theme: vanilla cream, midnight navy, and burgundy accents
+* Featured-project carousel with layered cards, swipe and keyboard controls
+* Connected technology cards with a slow, pausable loop
+* Asymmetric case-study grid (problem, solution, technologies)
+* Horizontal pinned-card journey timeline
 * Contact form integration using Formspree
-* Social links for GitHub, LinkedIn, and Email
-* SEO metadata, sitemap, robots file, and Open Graph image support
+* Resume and certificate downloads
+* Reduced-motion support, visible keyboard focus, skip link
+* SEO metadata per page, sitemap, robots file, and Open Graph image
 * Vercel deployment with GitHub integration
 
 ## Tech Stack
@@ -53,53 +52,45 @@ The goal of this project is to create a professional online presence for interns
 ## Project Structure
 
 ```txt
+app/                       Routes (App Router)
+├── layout.tsx             Fonts, metadata, navbar, footer
+├── template.tsx           Page entrance transition (CSS)
+├── globals.css            Design tokens (@theme) and base styles
+├── page.tsx               01 Home
+├── projects/page.tsx      02 Projects / Products
+├── technology/page.tsx    03 Technology
+├── case-studies/page.tsx  04 Case Studies
+├── journey/page.tsx       05 Journey
+├── about/page.tsx         06 About
+├── contact/page.tsx       07 Contact
+├── robots.ts
+└── sitemap.ts
+
 src/
-├── app/
-│   ├── layout.tsx
-│   ├── page.tsx
-│   ├── globals.css
-│   ├── robots.ts
-│   └── sitemap.ts
-│
 ├── components/
-│   ├── layout/
-│   │   └── Navbar.tsx
-│   ├── sections/
-│   │   ├── HeroSection.tsx
-│   │   ├── WhatIBuildSection.tsx
-│   │   ├── AboutSection.tsx
-│   │   ├── SkillsSection.tsx
-│   │   ├── ProjectsSection.tsx
-│   │   └── ContactSection.tsx
-│   └── ui/
-│       ├── Badge.tsx
-│       ├── Button.tsx
-│       ├── Card.tsx
-│       ├── IconBox.tsx
-│       ├── Reveal.tsx
-│       └── SectionHeader.tsx
-│
-├── data/
-│   ├── site.ts
-│   ├── projects.ts
-│   ├── skills.ts
-│   ├── focusAreas.ts
-│   ├── education.ts
-│   ├── contact.ts
-│   └── techTags.ts
-│
-└── types/
-    └── portfolio.ts
+│   ├── layout/            Navbar, Footer, Logo
+│   ├── ui/                Button, Card, Badge, IconBox, PageHeader, Reveal
+│   ├── home/              BuildFlow, LegacyHashRedirect
+│   ├── projects/          FeaturedCarousel, ProductCard
+│   ├── technology/        TechChain
+│   ├── case-studies/      CaseStudyCard
+│   ├── journey/           PinnedTimeline
+│   └── contact/           ContactForm
+├── data/                  site, projects, skills, education, journey, contact, …
+└── types/portfolio.ts
 ```
 
-## Main Sections
+All colours are defined once as tokens in `app/globals.css` and used through
+Tailwind utilities such as `bg-cream`, `text-navy` and `bg-burgundy`.
+
+## Pages
 
 * Home
-* What I Build
-* About
-* Education & Certifications
-* Skills & Focus Areas
 * Projects
+* Technology
+* Case Studies
+* Journey
+* About
 * Contact
 
 ## Selected Projects

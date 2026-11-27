@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: "Mary Sneha",
+  monogram: "MS",
   title: "Mary Sneha | AI & Data Science Portfolio",
   description:
     "AI and Data Science portfolio of Mary Sneha, showcasing practical software, machine learning, data science, analytics, and full-stack case-study projects.",
@@ -12,6 +13,7 @@ export const siteConfig = {
   email: "jeyakumarsneha21@gmail.com",
   github: "https://github.com/Marysneha-jeyakumar",
   linkedin: "https://www.linkedin.com/in/mary-sneha",
+  resume: "/resume.pdf",
 
   keywords: [
     "Mary Sneha",
@@ -26,3 +28,13 @@ export const siteConfig = {
     "MLOps",
   ],
 };
+
+export const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
+  { label: "Technology", href: "/technology" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Journey", href: "/journey" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+] as const;
